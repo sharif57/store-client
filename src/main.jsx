@@ -9,6 +9,8 @@ import Root from './layout/Root';
 import AuthProvider from './AuthProvider/AuthProvider';
 import Login from './components/Login';
 import Register from './components/Register';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,15 @@ const router = createBrowserRouter([
       {
         path:'/register',
         element: <Register></Register>
+      },
+      {
+        path:'/',
+        element: <Home></Home>
+      },
+      {
+        path:'allData',
+        element:<Navbar></Navbar>,
+        loader: ()=> fetch('http://localhost:5000/storeInfo')
       }
     ]
   },
