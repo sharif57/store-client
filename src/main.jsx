@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path:'allData',
         element:<Navbar></Navbar>,
-        loader: ()=> fetch('http://localhost:5000/storeInfo')
+        loader: ()=> fetch('https://store-server-green.vercel.app/storeInfo')
       }
     ]
   },
