@@ -11,7 +11,7 @@ import { GrTechnology } from "react-icons/gr";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
 
-    const [modalContent, setModalContent] = useState('login'); // State to switch between login and register
+    const [modalContent, setModalContent] = useState('login');
 
     const handleOpenModal = (content) => {
         setModalContent(content);
@@ -33,15 +33,13 @@ const Navbar = () => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [priceRange, setPriceRange] = useState([0, 1000]); // Default price range
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10; // Number of items per page
+    const itemsPerPage = 10; 
 
     useEffect(() => {
-        // Fetch products, brands, and categories
         fetch('https://store-server-green.vercel.app/storeInfo')
             .then(res => res.json())
             .then(data => {
                 setStores(data);
-                // Extract unique brands and categories
                 const uniqueBrands = [...new Set(data.map(store => store.brandName))];
                 const uniqueCategories = [...new Set(data.map(store => store.category))];
                 setBrands(uniqueBrands);
